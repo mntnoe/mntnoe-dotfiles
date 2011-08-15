@@ -1,5 +1,6 @@
 ;; File:     viper.el
-;; Author:   Mads N Noe <mntnoe (@) gmail.com>
+;; Author:   Mads N Noe <mail (@) madsnoe.dk>
+;; License:  as-is
 ;;
 ;; Put the following in your init.el to auto-start viper.
 ;; (setq viper-mode t)

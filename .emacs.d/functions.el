@@ -1,6 +1,9 @@
+;; File:     functions.el
+;; Author:   Mads N Noe <mail (@) madsnoe.dk>
+;; License:  as-is
 ;;
-;; AUXILIARY FUNCTIONS
-;;
+;; Auxiliary functions.
+
 
 (defun bc ()
   "Byte compile current file."
@@ -24,6 +27,7 @@
   (interactive)
   (recentf-open-files)
   (isearch-forward))
+
 
 ;;; TEXT SELECTION RELATED
 

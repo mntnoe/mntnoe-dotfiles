@@ -1,5 +1,5 @@
 ;; File:     modes.el
-;; Author:   Mads N Noe <mntnoe (@) gmail.com>
+;; Author:   Mads N Noe <mail (@) madsnoe.dk>
 ;; License:  as-is
 
 ;; ;; PETITE CHEZ SCHEME

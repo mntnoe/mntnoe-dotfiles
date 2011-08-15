@@ -1,4 +1,6 @@
-;; org.el
+;; File:     org.el
+;; Author:   Mads N Noe <mail (@) madsnoe.dk>
+;; License:  as-is
 
 (org-remember-insinuate)
 

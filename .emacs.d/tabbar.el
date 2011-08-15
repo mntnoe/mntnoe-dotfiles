@@ -1,4 +1,7 @@
-;; Tabbar
+;; File:     tabbar.el
+;; Author:   Mads N Noe <mail (@) madsnoe.dk>
+;; License:  as-is
+
 (require 'tabbar)
 (require 'cl)
 (tabbar-mode 1)
