@@ -1,0 +1,233 @@
+# File:     config (fvwm2rc)
+# Author:   Mads N Noe <mntnoe (@) gmail.com>
+# Licence:  as-is
+# Modified: 2009-02-26
+
+# GENERAL {{{1
+##################
+
+# Paths and Environment {{{2
+#
+#
+
+ImagePath $[FVWM_USERDIR]/icons:+
+ModulePath $[FVWM_USERDIR]/modules:+
+
+SetEnv FVWM_DOCK_HEIGHT 0
+#SetEnv FVWM_DOCK_HEIGHT 28
+# }}}2
+
+# General Options {{{2
+#
+#
+
+DesktopSize 1x1
+IgnoreModifiers L2
+SnapAttraction 8 SameType
+EdgeScroll 0 0
+EdgeResistance 15 100
+EdgeThickness 1
+ClickTime 150
+MoveThreshold 3
+OpaqueMoveSize unlimited
+HideGeometryWindow Always
+BugOpts FlickeringMoveWorkaround Off
+SnapGrid 1 1
+EwmhBaseStruts 0 0 $[FVWM_DOCK_HEIGHT] 0
+EWMHNumberOfDesktops 4
+ColormapFocus FollowsFocus
+
+DesktopName 0 Workspace 1
+DesktopName 1 Workspace 2
+DesktopName 2 Workspace 3
+DesktopName 3 Workspace 4
+# }}}2
+# }}}1
+
+# STYLES {{{1
+##################
+
+# General Styles {{{2
+#
+#
+
+Style * DecorateTransient, WindowShadeSteps 20, ResizeOpaque
+Style * MWMFunctions, MWMDecor
+Style * MinOverlapPercentPlacement
+Style * ClickToFocus
+Style * FPGrabFocus, FPReleaseFocus
+Style * FPGrabFocusTransient, FPReleaseFocusTransient
+Style * NoIcon 
+# }}}2
+
+# Cursor Styles {{{2
+#
+#
+
+
+CursorStyle root left_ptr
+CursorStyle default left_ptr 
+CursorStyle position left_ptr
+CursorStyle sys left_ptr 
+CursorStyle menu left_ptr
+CursorStyle title left_ptr
+CursorStyle resize fleur
+CursorStyle select draped_box
+# }}}2
+
+# Application Styles {{{2
+#
+#
+
+# Fix focus policy in java apps:
+Style "sun-awt*"	Lenience
+
+# I'm not sure all of these are necessary, but it works...
+Style "Conky" \
+	Sticky, \
+	NoTitle, \
+	WindowListSkip, \
+	CirculateSkipIcon, \
+	CirculateSkip, \
+	FixedPosition, \
+	FixedSize, \
+	!Iconifiable, \
+	NeverFocus
+
+Style "Xfce4-panel" \
+	Sticky, \
+	NoTitle, \
+	WindowListSkip, \
+	CirculateSkipIcon, \
+	CirculateSkip, \
+	FixedPosition, \
+	FixedSize, \
+	!Iconifiable, \
+	NeverFocus
+# }}}2
+
+# Decoration Styles {{{2
+#
+#
+
+DestroyDecor recreate NoBorder
+AddToDecor NoBorder
++ ButtonStyle All - Clear
++ BorderStyle -- Flat
+Style * UseDecor NoBorder
+
+Style * BorderColorset 4, BorderWidth 3, !Handles
+Colorset 4 fg #000000, bg #c0c0c0
+# All other
+Style *             HilightBorderColorset 5
+Colorset 5 fg #000000, bg #ff1010
+# Terminals
+Style xterm         HilightBorderColorset 6
+Style urxvt         HilightBorderColorset 6
+Colorset 6 fg #000000, bg #3030ff
+# Readers, browsers
+Style acroread      HilightBorderColorset 7
+Style XDvi          HilightBorderColorset 7
+Style Xpdf          HilightBorderColorset 7
+Style Firefox       HilightBorderColorset 7
+Style Firefox-bin   HilightBorderColorset 7
+Style Iceweasel     HilightBorderColorset 7
+Style firefox       HilightBorderColorset 7
+Colorset 7 fg #000000, bg #ff9900
+
+Style * Font "xft:Verdana:pixelsize=10:encoding=iso10646-1"
+# For ISO-8859-1 systems:
+#Style * Font "xft:Verdana:pixelsize=10:encoding=iso8859-1"
+
+Style * MwmDecor
+Style * NoTitle
+# }}}2
+
+# Menu Styles {{{2
+#
+#
+
+MenuStyle * MenuColorset 0, ActiveColorset 1, HilightBack
+MenuStyle * Hilight3DThin, BorderWidth 1, TitleUnderlines1, SeparatorsLong
+MenuStyle * PopupOffset +0 100, PopupDelay 0, PopupAsSubMenu, TrianglesSolid
+MenuStyle * Font "xft:Sans:regular:pixelsize=12"
+
+# Menu Colorsets {{{3
+Colorset 0 \
+	fg   #303030, \
+	bg   #f9f7f3, \
+	hi   #808080, \
+	sh   #808080, \
+	Translucent #f9f7f3 90
+
+Colorset 1 \
+	fg #ede9e3, \
+	bg #4f93d2, \
+	hi   #808080, \
+	sh   #808080
+# }}}3
+
+DestroyFunc WindowListFunc
+AddToFunc WindowListFunc
++ I Iconify off
++ I FlipFocus
++ I Raise
+# }}}2
+# }}}1
+
+# OTHER SETUP {{{1
+##################
+
+# Startup {{{2
+#
+#
+
+DestroyFunc StartFunction
+AddtoFunc StartFunction
++ I Module FvwmCommandS
++ I Module FvwmAnimate
+# }}}2
+
+# Module Configuration {{{2
+#
+#
+
+DestroyModuleConfig FvwmIdent: *
+*FvwmIdent: Fore #f1f1f1
+*FvwmIdent: Back #0d0d0d
+*FvwmIdent: Font "xft:Sans:regular:pixelsize=12:encoding=iso10646-1"
+
+# One exceptional case where animation actually helps showing what is going on.
+DestroyModuleConfig FvwmAnimate: *
+*FvwmAnimate: Effect Frame
+*FvwmAnimate: Delay 3
+*FvwmAnimate: Iterations 16
+*FvwmAnimate: Width 3
+# }}}2
+
+# Menus {{{2
+#
+#
+
+DestroyMenu MenuRoot
+AddToMenu MenuRoot
++ DynamicPopupAction PipeRead "$[FVWM_USERDIR]/menus/root.sh"
+
+# MenuWindowOps {{{3
+DestroyMenu MenuWindowOps
+AddToMenu MenuWindowOps
+# Only inlude functions not accessible elsewhere
++ "&Top"        Layer 0 6
++ "&Normal"     Layer 0 4
++ "&Bottom"     Layer 0 2
++ ""            Nop
++ "&Stick"      Stick
++ "Fvwm&Ident"  Module FvwmIdent
++ "&Destroy"    Destroy
+# }}}3
+# }}}2
+
+Read $[FVWM_USERDIR]/bindings
+# }}}1
+
+# vim: ft=fvwm fdm=marker fdl=1

@@ -1,0 +1,173 @@
+# File:     .aliases
+# Author:   Mads N Noe <mail (@) madsnoe.dk>
+# Modified: 2011-08-15
+#
+# .aliases - aliases common to bash and zsh
+
+# default flags
+if [[ "$TERM" != "dumb" ]]
+then alias ls="ls -h --color"
+else alias ls="ls -hF"
+fi
+
+alias D1='DISPLAY=":1"'
+alias df="df -h"
+alias datf="date +%F"
+
+alias g="grep -r --color=always"
+alias gi="g -i"
+alias c=cat
+alias e=echo
+alias mtr=gvfs-trash
+alias le="less -R"
+alias make="make -j2 --no-print-directory"
+
+alias ifconfig=/sbin/ifconfig
+
+# shortcuts
+alias l="ls"
+alias ll="ls -l"
+alias la="ls -a"
+alias lla="ls -la"
+
+alias chx="chmod +x"
+if [[ "$HOSTNAME" == "mntnoe-server" ]]
+then 
+    alias chm="sudo chown -R mntnoe:users"
+    update-storage-for () {
+        sudo chown -R nobody:storage $*
+        sudo chmod -R 660 $*
+        sudo chmod -R ug+X $*
+    }
+else
+    alias chm="sudo chown -R mntnoe:mntnoe"
+    if [[ $UID == 0 ]] {
+        alias cpm="install --owner=mntnoe --group=mntnoe --mode=u=rwX,g=rX,o=-s"
+    }
+fi
+
+alias mk="mkdir"
+
+alias m="mount"
+alias u="umount"
+
+# compctl -g '*.ps' + -f lpr
+function fin () { 
+    pattern="*"
+    if [[ ! -z $1 ]] {
+        pattern=$1
+        shift
+    }
+    find . -name $pattern -print $@
+}
+
+alias S="screen"
+alias n="nautilus"
+alias N="nautilus ."
+alias w3m="w3m -title"
+alias w="w3m"
+alias ac="acroread"
+alias mp="mplayer -quiet -fs"
+function mpd () { mp dvd://$1; }
+
+alias p="ipython"
+
+alias rmr="rm -rf"
+
+alias dpms="xset +dpms; xset s off"
+
+# VIM
+zstyle ':completion:*:vim:*' ignored-patterns '(*/)#*.(aux|toc|latexmain|dvi|pdf|drw)'
+[[ "$HOSTNAME" != "mntnoe-server" && $UID != 0 ]] && alias vim="vim --servername VIM"
+alias vi="vim"
+alias v="vim"
+alias vr="vim --remote-tab-silent"
+alias vs="vim -S ~/.vim/Session.vim"
+alias V="gvim --servername VIM"
+alias Vr="gvim --remote-tab-silent"
+alias Vs="gvim -S ~/.vim/Session.vim"
+
+alias va="vim ~/.zsh/aliases && source ~/.zsh/aliases"
+alias vz="vim ~/.zshrc"
+alias vb="vim ~/.zsh/bookmarks"
+alias vd="vim ~/.local/share/applications/defaults.list"
+alias vv="vim ~/.vimrc"
+alias vw="(cd ~/.xmonad; vim xmonad.hs lib/*.hs)"
+
+# EMACS
+alias E="Emacs"
+
+# SUDO
+alias s="sudo"
+alias sv="sudo vim"
+zstyle ':completion:*:sudo:*' command-path append /sbin /usr/sbin
+
+if [[ "$UID" == "0" ]] {
+    alias a="apt-get"
+    alias ai="apt-get install"
+    alias as="apt-cache search"
+} else {
+    alias a="sudo apt-get"
+    alias ai="sudo apt-get install"
+    alias as="apt-cache search"
+}
+
+alias sad="svn add"
+alias srm="svn rm --force"
+alias smk="svn mkdir"
+alias sci="svn ci"
+alias scim="svn ci -m \"\""
+alias sup="svn up"
+alias st="svn st"
+alias sig="svn propedit svn:ignore"
+alias slog="svn log --limit 10"
+alias sdi="svn diff -rPREV"
+
+function rs ()
+{
+    [[ "$@" == "" ]] && { echo "usage: rs <cu|cg|b|i|...>"; return 1; }
+    SETUP=0
+    [[ -f Setup.hs ]] && SETUP=Setup.hs
+    [[ -f Setup.lhs ]] && SETUP=Setup.lhs
+    [[ $SETUP == 0 ]] && { echo "ta: Setup.[l]hs not found!"; return 1; }
+
+    OP=()
+    case "$1" in
+        cu) OP=(configure --user "--prefix=$HOME/.local")
+            shift ;;
+        cg) OP=(configure)
+            shift ;;
+        b)  OP=(build)
+            shift ;;
+        i)  OP=(install)
+            shift ;;
+    esac
+
+    ARGS=($SETUP $OP $@)
+
+    runhaskell $ARGS
+
+}
+
+alias so="source"
+
+rept () {
+    [[ "$@" == "" ]] && { echo missing arg ; return 1 }
+    local i=$(($1))
+    shift
+    while [[ i -gt 0 ]]; do
+        eval $@
+        i=$((i-1))
+    done
+}
+
+XC () {
+    xclip -in -selection clipboard <(history | tail -n1 | cut -f2)
+}
+
+
+
+alias server="python -m SimpleHTTPServer"
+
+
+# vim: set ft=zsh:

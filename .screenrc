@@ -1,0 +1,37 @@
+# File:     .screenrc
+# Author:   Mads N Noe <mail (@) madsnoe.dk>
+# Licence:  as-is
+# Modified: 2009-09-02
+
+startup_message off
+caption always "%{= dw}%?%-Lw%?%{= wk}%n*%f %t%?(%u)%?%{= dw}%?%+Lw%?"
+defscrollback 5120
+#escape ›^[
+altscreen on
+maptimeout 10
+msgwait 0.2
+
+attrcolor b ".I"
+# termcapinfo xterm-256color 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm:ti@:te@'
+termcapinfo xterm-256color ti@:te@
+term screen-256color
+
+#bind ô screen           # <M-t>
+#bind ò only             # <M-r>
+#bind r remove           # r
+#bind ó split            # <M-s>
+#bind é focus            # <M-i>
+#bind K kill             # K
+#bind á title            # <M-a>
+#bind ÷ windowlist -b    # <M-w>
+#bind ä detach           # <M-d>
+#bind ð prev             # <M-p>
+#bind î next             # <M-n>
+#bind ^M next            # <Cr>/<M-n>
+#bind û copy             # <M-{>
+#bind { copy             # <M-{>
+#bind ý paste .          # }
+#bind } paste [.]        # <M-}>
+
+
+# vim: set ft=screen:

@@ -1,0 +1,15 @@
+# File:     .conkyrc-dzen
+# Author:   Mads N Noe <mail (@) madsnoe.dk>
+# Licence:  as-is
+# Modified: 2010-08-15
+# vim: set ft=conkyrc:
+
+update_interval 1.0
+out_to_console yes
+no_buffers yes
+short_units yes
+use_spacer left
+if_up_strictness address
+#$diskio ^i(/home/mntnoe/.local/share/hbar-0.1/icons/diskette.xbm)
+TEXT
+${if_up usb0}^p(;+2)${upspeed usb0}k^p() ^i(/home/mntnoe/.local/share/hbar-0.1/icons/net_up_01.xbm) ^p(;+2)${downspeed usb0}k^p() ^i(/home/mntnoe/.local/share/hbar-0.1/icons/net_down_01.xbm)$endif${if_up eth0}^p(;+2)${upspeed eth0}k^p() ^i(/home/mntnoe/.local/share/hbar-0.1/icons/net_up_01.xbm) ^p(;+2)${downspeed eth0}k^p() ^i(/home/mntnoe/.local/share/hbar-0.1/icons/net_down_01.xbm)$endif${if_up wlan0}^p(;+2)${upspeed wlan0}k^p() ^i(/home/mntnoe/.local/share/hbar-0.1/icons/net_up_01.xbm) ^p(;+2)${downspeed wlan0}k^p() ^i(/home/mntnoe/.local/share/hbar-0.1/icons/net_down_01.xbm)$endif 

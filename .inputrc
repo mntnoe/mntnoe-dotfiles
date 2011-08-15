@@ -1,0 +1,33 @@
+# File:     .inputrc
+# Author:   Mads N Noe <mail (@) madsnoe.dk>
+# Licence:  as-is
+# Modified: 2010-06-30
+
+$include /etc/inputrc
+set convert-meta on
+set show-all-if-ambiguous on
+set page-completions off
+
+set editing-mode vi
+
+# Use one TAB instead of two
+set show-all-if-ambiguous On
+
+"î": accept-line
+"å": complete
+"è": backward-char
+"ì": forward-char
+"ë": previous-history
+"ê": next-history
+"÷": forward-word
+"ö": backward-word
+"á": beginning-of-line
+"ä": end-of-line
+"ó": backward-delete-char
+"ô": delete-char
+"ˆ": backward-kill-word
+"ð": kill-word
+"": undo
+"Û": character-search-backward
+"Ý": character-search
+"ñ": ""

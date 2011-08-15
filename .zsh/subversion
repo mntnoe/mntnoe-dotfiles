@@ -1,0 +1,45 @@
+# File:     subversion
+# Author:   Mads N Noe <mail (@) madsnoe.dk>
+# Modified: 2010-02-14
+
+
+# LSVNDIRS have empty commit messages
+LSVNDIRS=("$HOME" "$HOME/Work")
+GSVNDIRS=("$HOME/Library/Repos/EkspSys")
+
+function _st () (
+for I in $@; do
+    echo "$fg[yellow]$I:${NORM}"
+    svn status "$I"
+done
+)
+function gst () _st $GSVNDIRS
+function lst () _st $LSVNDIRS
+
+
+function gsci () (
+for I in $GSVNDIRS; do
+    echo "$fg[yellow]Committing $I:${NORM}"
+    cd $I
+    svn ci
+done
+)
+function lsci () (
+for I in $LSVNDIRS; do
+    echo "$fg[yellow]Committing $I:${NORM}"
+    cd $I
+    svn ci -m ""
+done
+)
+
+function _sup () (
+for I in $@; do
+    echo "$fg[yellow]Updating $I:${NORM}"
+    cd $I
+    svn update
+done
+)
+function gsup () _sup $GSVNDIRS
+function lsup () _sup $LSVNDIRS
+
+# vim: set ft=zsh:

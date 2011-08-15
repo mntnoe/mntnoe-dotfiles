@@ -1,0 +1,323 @@
+# File:     bindings.fvwm2rc
+# Author:   Mads N Noe <mntnoe (@) gmail.com>
+# Licence:  as-is
+# Modified: 2009-02-18
+
+# KEY BINDINGS {{{1
+##################
+
+# Window Switching {{{2
+#
+#
+
+# FocusRaiseFunc {{{3
+DestroyFunc FocusRaiseFunc
+AddToFunc FocusRaiseFunc
++ I FlipFocus
++ I Raise
+# }}}3
+
+Key Tab A M -
+
+CopyMenuStyle * WindowList
+MenuStyle WindowList SelectOnRelease ISO_Level3_Shift
+Key Tab A 5                   WindowList Root c c CurrentDesk NoCurrentDeskTitle NoGeometry NoIcons
+
+Key bracketright A 5          Prev (CurrentPage, AcceptsFocus, !Iconic) FocusRaiseFunc
+Key bracketright A 5S         Next (CurrentPage, AcceptsFocus, !Iconic) FocusRaiseFunc
+
+Key E A 5                     ScanForWindow NorthWest NorthEast (CurrentPage, AcceptsFocus, !Iconic) FocusRaiseFunc
+Key N A 5                     ScanForWindow SouthEast NorthEast (CurrentPage, AcceptsFocus, !Iconic) FocusRaiseFunc
+
+Key E A 5S                    Direction North \
+                              (CurrentPage, AcceptsFocus, !Iconic) FocusRaiseFunc
+Key N A 5S                    Direction South \
+                              (CurrentPage, AcceptsFocus, !Iconic) FocusRaiseFunc
+Key I A 5S                    Direction East \
+                              (CurrentPage, AcceptsFocus, !Iconic) FocusRaiseFunc
+Key H A 5S                    Direction West \
+                              (CurrentPage, AcceptsFocus, !Iconic) FocusRaiseFunc
+# }}}2
+
+# Window Movement {{{2
+#
+#
+
+# Fixed moving
+Key A WSF 5S                  Move w-10 w+0
+Key S WSF 5S                  Move w+10 w+0
+Key W WSF 5S                  Move w+0 w-10
+Key R WSF 5S                  Move w+0 w+10
+    
+
+# Pack windows {{{3
+# (These functions are taken from taviso's .fvwmrc.)
+DestroyFunc PackWindowUp
+AddToFunc PackWindowUp
+# Remember to change this to match your EwmhBaseStruts!
++ I SetEnv low_w $[FVWM_DOCK_HEIGHT]
++ I WindowId $3 Raise
++ I All (CurrentPage !Iconic AcceptsFocus \
+        !Shaded) PipeRead "test `expr $[w.y] + $[w.height]` -gt $[low_w] \
+        -a `expr $[w.y] + $[w.height]` -lt $0 \
+        -a \\( \\( $[w.x] -gt $1 -a $[w.x] -lt `expr $1 + $2` \\) \
+            -o \\( $1 -gt $[w.x] -a $1 -lt `expr $[w.x] + $[w.width]` \\) \
+            -o \\( $1 -le $[w.x] -a `expr $1 + $2` -ge `expr $[w.x] + $[w.width]` \\) \
+            -o \\( $[w.x] -lt $1 -a `expr $[w.x] + $[w.width]` -gt `expr $1 + $2` \\) \
+        \\) \
+        && echo SetEnv low_w `expr $[w.y] + $[w.height]` \
+        || echo Nop"
++ I WindowId $3 Move keep $[low_w]p
+
+DestroyFunc PackWrapperUp
+AddToFunc PackWrapperUp I NoWindow PackWindowUp $[w.y] $[w.x] $[w.width] $[w.id]
+
+DestroyFunc PackWindowDown
+AddToFunc PackWindowDown
++ I SetEnv high_w $[vp.height]
++ I WindowId $3 Raise
++ I All (CurrentPage !Iconic AcceptsFocus \
+        !Shaded) PipeRead "test $[w.y] -lt $[high_w] \
+        -a $[w.y] -gt `expr $0 + $4`  \
+        -a \\( \\( $[w.x] -gt $1 -a $[w.x] -lt `expr $1 + $2` \\) \
+            -o \\( $1 -gt $[w.x] -a $1 -lt `expr $[w.x] + $[w.width]` \\) \
+            -o \\( $1 -le $[w.x] -a `expr $1 + $2` -ge `expr $[w.x] + $[w.width]` \\) \
+            -o \\( $[w.x] -lt $1 -a `expr $[w.x] + $[w.width]` -gt `expr $1 + $2` \\) \
+        \\) \
+        && echo SetEnv high_w $[w.y] \
+        || echo Nop"
++ I PipeRead "echo WindowId $3 Move keep `expr $[high_w] - $4`p"
+
+DestroyFunc PackWrapperDown
+AddToFunc PackWrapperDown I NoWindow PackWindowDown $[w.y] $[w.x] $[w.width] $[w.id] $[w.height]
+
+DestroyFunc PackWindowLeft
+AddToFunc PackWindowLeft
++ I SetEnv left_w 0
++ I WindowId $3 Raise
++ I All (CurrentPage !Iconic AcceptsFocus \
+        !Shaded) PipeRead "test `expr $[w.x] + $[w.width]` -gt $[left_w] \
+        -a `expr $[w.x] + $[w.width]` -lt $1 \
+        -a \\( \\( $[w.y] -gt $0 -a $[w.y] -lt `expr $0 + $4` \\) \
+            -o \\( $[w.y] -lt $0 -a `expr $[w.y] + $[w.height]` -gt $0 \\) \
+            -o \\( $[w.y] -ge $0 -a `expr $[w.y] + $[w.height]` -le `expr $0 + $4` \\) \
+            -o \\( $[w.y] -lt $0 -a `expr $[w.y] + $[w.height]` -gt `expr $0 + $4` \\) \
+        \\) \
+        && echo SetEnv left_w `expr $[w.x] + $[w.width]`  \
+        || echo Nop"
++ I WindowId $3 Move $[left_w]p keep
+
+DestroyFunc PackWrapperLeft
+AddToFunc PackWrapperLeft I NoWindow PackWindowLeft $[w.y] $[w.x] $[w.width] $[w.id] $[w.height]
+
+DestroyFunc PackWindowRight
+AddToFunc PackWindowRight
++ I SetEnv right_w $[vp.width]
++ I WindowId $3 Raise
++ I All (CurrentPage !Iconic AcceptsFocus \
+        !Shaded) PipeRead "test $[w.x] -lt $[right_w] \
+        -a $[w.x] -gt `expr $1 + $2` \
+        -a \\( \\( $[w.y] -gt $0 -a $[w.y] -lt `expr $0 + $4` \\) \
+            -o \\( $[w.y] -lt $0 -a `expr $[w.y] + $[w.height]` -gt $0 \\) \
+            -o \\( $[w.y] -ge $0 -a `expr $[w.y] + $[w.height]` -le `expr $0 + $4` \\) \
+            -o \\( $[w.y] -lt $0 -a `expr $[w.y] + $[w.height]` -gt `expr $0 + $4` \\) \
+        \\) \
+        && echo SetEnv right_w $[w.x] \
+        || echo Nop"
++ I PipeRead "echo WindowId $3 Move `expr $[right_w] - $2`p keep"
+
+DestroyFunc PackWrapperRight
+AddToFunc PackWrapperRight I NoWindow PackWindowRight $[w.y] $[w.x] $[w.width] $[w.id] $[w.height]
+# }}}3
+
+# Pack windows (taviso)
+Key A WSF 5                   PackWrapperLeft
+Key S WSF 5                   PackWrapperRight
+Key W WSF 5                   PackWrapperUp
+Key R WSF 5                   PackWrapperDown
+# }}}2
+
+# General Window Handling {{{2
+#
+#
+
+# mnemonic: hide window
+Key H WSF 5                   Iconify
+# mnemonic: restore window
+Key P A 5                     Prev (CurrentDesk, AcceptsFocus, Iconic) WindowListFunc
+Key P A 5S                    WindowList Root c c CurrentDesk OnlyIcons CurrentAtEnd
+
+Key M WSF 5                   Maximize
+Key M WSF 5S                  Maximize 100 0
+Key M WSF 5M                  Maximize 0 100
+
+Key K WSF 5                   Maximize growonlayers $[w.layer] -1 grow grow
+Key K WSF 5C                  Maximize growonlayers $[w.layer] -1 grow 0
+Key K WSF 5S                  Maximize growonlayers $[w.layer] -1 0 grow
+
+Key Q WSF 5                   Close
+# for one handed use
+Key F4 WSF M                  Close
+
+# mnemonic: change z-layer
+Key Z WSF 5                   RaiseLower
+Key X WSF 5                   Piperead "echo Move \
+                              +$(( $[vp.width]/2-$[w.width]/2 ))p \
+                              +$(( $[vp.height]-$[w.height] ))p"
+# mnemonic: center
+Key C WSF 5                   Piperead "echo Move \
+                              +$(( $[vp.width]/2-$[w.width]/2 ))p \
+                              +$(( 13 + $[vp.height]/2-$[w.height]/2 ))p"
+# mnemonic: view again
+Key V A 5                     All (CurrentDesk, !Iconic, \
+                              AcceptsFocus, CirculateHit) PlaceAgain
+
+# Shrink/Enlarge Functions {{{3
+DestroyFunc VShrinkS
+AddToFunc   VShrinkS
++ I Resize w0 w-10
++ I Move   w0 w5
+
+DestroyFunc VEnlargeS
+AddToFunc   VEnlargeS
++ I Resize w0 w10
++ I Move   w0 w-5
+
+DestroyFunc HShrinkS
+AddToFunc   HShrinkS
++ I Resize w-8 w0
++ I Move   w4 w0
+
+DestroyFunc HEnlargeS
+AddToFunc   HEnlargeS
++ I Resize w8 w0
++ I Move   w-4 w0
+
+DestroyFunc VShrink
+AddToFunc   VShrink
++ I Resize w0 w-20
++ I Move   w0 w10
+
+DestroyFunc VEnlarge
+AddToFunc   VEnlarge
++ I Resize w0 w20
++ I Move   w0 w-10
+
+DestroyFunc HShrink
+AddToFunc   HShrink
++ I Resize w-14 w0
++ I Move   w7 w0
+
+DestroyFunc HEnlarge
+AddToFunc   HEnlarge
++ I Resize w14 w0
++ I Move   w-7 w0
+# }}}3
+
+Key minus WSF 5M              VShrinkS
+Key minus WSF 5SM             VEnlargeS
+Key equal WSF 5M              HShrinkS
+Key equal WSF 5SM             HEnlargeS
+
+Key minus WSF 5               VShrink
+Key minus WSF 5S              VEnlarge
+Key equal WSF 5               HShrink
+Key equal WSF 5S              HEnlarge
+
+Key 8 WST 5                   PipeRead "$[FVWM_USERDIR]/scripts/resize vp.x=0 vp.y=$[FVWM_DOCK_HEIGHT] vp.width=$[vp.width] vp.height=$[vp.height] w.width=$[w.width] w.height=$[w.height] w.x=$[w.x] w.y=$[w.y] shrink"
+Key 8 WST 5S                  PipeRead "$[FVWM_USERDIR]/scripts/resize vp.x=0 vp.y=$[FVWM_DOCK_HEIGHT] vp.width=$[vp.width] vp.height=$[vp.height] w.width=$[w.width] w.height=$[w.height] w.x=$[w.x] w.y=$[w.y] enlarge"
+
+Key grave WSF 5               Menu MenuWindowOps Interior 0 0 
+
+Key 0 A 5                     All (CurrentDesk, AcceptsFocus, CirculateHit) Maximize false
+Key 1 A 5                     FvwmRearrange -tile 0 $[FVWM_DOCK_HEIGHT]p 100 100 -maximize -m -mn 1
+Key 2 A 5                     FvwmRearrange -tile 0 $[FVWM_DOCK_HEIGHT]p 100 100 -maximize -m -mn 2
+# }}}2
+
+# Applications Bindings {{{2
+#
+#
+
+Key I A 5                     Menu MenuRoot Root c c
+
+Key slash A 5                Exec exec dmenu_run -b
+
+Key F5 A 5                    Module FvwmConsole
+
+Key T A 5                     Exec exec xterm
+Key B A 5                     Exec exec firefox
+Key F A 5                     Exec exec xmutt
+Key G A 5                     Exec exec gvim
+Key J A 5                     Exec exec thunar
+
+# }}}2
+
+# Desktop Switching {{{2
+#
+#
+
+# GotoDesk Functions {{{3
+# (Originally from pasq's config, if I remember correctly...)
+DestroyFunc GotoDeskFunc
+AddToFunc GotoDeskFunc
++ I All (CurrentPage, AcceptsFocus) State 1 False
+# Hack: AcceptFocus below to avoid Xfce4-panel magically stealing the focus.
++ I All (CurrentPage, AcceptsFocus, Focused) State 1 True
++ I GotoDesk $0 $1
++ I All (CurrentPage, State 1) Focus
++ I None (CurrentPage, Focused) All (CurrentPage, AcceptsFocus, !Iconic) Focus
+
+DestroyFunc MoveToDeskFunc
+AddToFunc MoveToDeskFunc
++ I MoveToDesk $0 $1
++ I GotoDeskFunc $0 $1
++ I Focus
+# }}}3
+
+Key L A 5                     GoToDeskFunc 0 0
+Key U A 5                     GoToDeskFunc 0 1
+Key Y A 5                     GoToDeskFunc 0 2
+Key semicolon A 5             GoToDeskFunc 0 3
+Key L A 5S                    MoveToDeskFunc 0 0
+Key U A 5S                    MoveToDeskFunc 0 1
+Key Y A 5S                    MoveToDeskFunc 0 2
+Key semicolon A 5S            MoveToDeskFunc 0 3
+# }}}2
+# }}}1
+
+
+# MOUSE BINDINGS {{{1
+##################
+
+# Get rid of the builtin menu. 
+Mouse 1 R A -
+
+# MoveFunc/ResizeFunc {{{2
+DestroyFunc MoveFunc
+AddToFunc   MoveFunc
++ I Raise
+# 'I' to make button 8 work
++ I Move
+
+DestroyFunc ResizeFunc
+AddToFunc   ResizeFunc
++ I Raise
++ I Resize
+# }}}2
+
+# The only exception where we use a modifier other than 5 (AltGr).
+# The mouse is (usually) to the right of the keyboard, so we need
+# to use the left Alt instead.
+Mouse 1 W M                   MoveFunc
+Mouse 3 W M                   ResizeFunc
+
+# no border actions
+Mouse 0 S N
+
+PipeRead "if [[ \"$HOSTNAME\" == \"mntnoe-desktop\" ]]; then \
+    echo 'Silent Mouse 8 A N            MoveFunc'; \
+    echo 'Silent Mouse 8 A M            Close'; \
+fi"
+# }}}1
+
+# vim: ft=fvwm fdm=marker fdl=1

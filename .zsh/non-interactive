@@ -1,0 +1,69 @@
+# File:     .environment
+# Author:   Mads N Noe <mail (@) madsnoe.dk>
+# Modified: 2011-03-17
+
+
+if [ "$PROFILE_EXECUTED" = "" ]; then
+    [ "$HOSTNAME" = "" ] && export HOSTNAME="`hostname`"
+    [ "$USER" = "" ]     && export USER="`id -un`"
+    [ "$UID" = "" ]      && export UID="`id -n`"
+
+    # path
+    if [ "$HOSTNAME" != "mntnoe-netbook" ]; then
+        [ "$UID" = "0" ] && 
+            export PATH="/usr/local/sbin:$PATH" ||
+            export PATH="$PATH:$HOME/.local/bin"
+    fi
+
+    # Locale
+    export LANG=en_US
+    export LANGUAGE=en
+    export LC_CTYPE=da_DK
+    export LC_NUMERIC=en_US
+    export LC_TIME=da_DK
+    export LC_COLLATE=da_DK
+    export LC_MONETARY=da_DK
+    export LC_MESSAGES=en_US
+    export LC_PAPER=da_DK
+    export LC_NAME=da_DK
+    export LC_ADDRESS=da_DK
+    export LC_TELEPHONE=da_DK
+    export LC_MEASUREMENT=da_DK
+    export LC_IDENTIFICATION=da_DK
+
+    # Files created by nautilus are Latin-1 encoded.
+    export G_BROKEN_FILENAMES="1"
+
+    # APP CONFIG
+
+    # man
+    export LESS="$LESS -i"
+    export MANWIDTH=80
+
+    # petite
+    export SCHEMEHEAPDIRS="$HOME/.local/lib/csv%v/%m"
+
+    # python
+    export PYTHONSTARTUP=$HOME/.pystartup
+
+
+    # java
+    # Workaround when running in xmonad (breaks firefox).
+    #export AWT_TOOLKIT=MToolkit
+
+    # misc
+    export TEXINPUTS="$HOME/.local/share/latex/:"
+    export OOO_DISABLE_RECOVERY=1
+
+
+    # DEFAULT APPS
+
+    export BROWSER="/usr/bin/firefox"
+    export EDITOR="/usr/bin/vim"
+
+
+    export PROFILE_EXECUTED=1
+fi
+
+
+# vim: set ft=sh:

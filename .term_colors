@@ -1,0 +1,29 @@
+# File:     .zsh_colors
+# Author:   Mads N Noe <mail (@) madsnoe.dk>
+# Licence:  as-is
+# Modified: 2009-12-25
+#
+# To be sourced by scripts for color support
+
+if [[ "$TERM" != "dumb" ]] ; then
+    BLACK=$'\033[00;30m'
+    RED=$'\033[00;31m'
+    GREEN=$'\033[00;32m'
+    YELLOW=$'\033[00;33m'
+    BLUE=$'\033[00;34m'
+    MAGENTA=$'\033[00;35m'
+    CYAN=$'\033[00;36m'
+    WHITE=$'\033[00;37m'
+    BBLACK=$'\033[01;30m'
+    BRED=$'\033[01;31m'
+    BGREEN=$'\033[01;32m'
+    BYELLOW=$'\033[01;33m'
+    BBLUE=$'\033[01;34m'
+    BMAGENTA=$'\033[01;35m'
+    BCYAN=$'\033[01;36m'
+    BWHITE=$'\033[01;37m'
+    BOLD=$'\033[01;39m'
+    NORM=$'\033[00m'
+fi 
+
+# vim: set ft=zsh:

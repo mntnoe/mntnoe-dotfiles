@@ -1,0 +1,27 @@
+# File:     screen
+# Author:   Mads N Noe <mail (@) madsnoe.dk>
+# Modified: 2010-04-04
+
+if [[ "$TERM[0,6]" != "screen" || $HOSTNAME == mntnoe-server ]] {
+    _screen-preexec () {}
+    _screen-precmd  () {}
+} else {
+    SCREEN_TITLE="zsh"
+
+    _screen-preexec () {
+        case ${1%% *} in
+            man|info) 
+            echo -ne "\ekman\e\\"
+            ;;
+            v|vi|view|vim)
+            echo -ne "\ekvim\e\\"
+            ;;
+        esac
+    }
+
+    _screen-precmd () {
+        echo -ne "\ek$SCREEN_TITLE\e\\"
+    }
+}
+
+# vim: set ft=zsh:

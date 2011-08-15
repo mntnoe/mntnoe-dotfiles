@@ -1,0 +1,36 @@
+# File:     spectrum
+# Author:   Mads N Noe <mail (@) madsnoe.dk>
+# Modified: 2010-01-10
+
+typeset -Ag FX FG BG
+
+autoload colors zsh/terminfo
+if [[ "$terminfo[colors]" -ge 8 ]] {
+    colors
+    BOLD=$'\033[01;39m'
+    NORM=$'\033[00m'
+    FX=(
+        reset     "[00m"
+        bold      "[01m" no-bold      "[22m"
+        italic    "[03m" no-italic    "[23m"
+        underline "[04m" no-underline "[24m"
+        blink     "[05m" no-blink     "[25m"
+        reverse   "[07m" no-reverse   "[27m"
+    )
+}
+
+if [[ "$terminfo[colors]" -ge 256 ]] {
+    for color in {0..255}; do
+        FG[$color]=$'\033[38;5;'"${color}m"
+        BG[$color]=$'\033[48;5;'"${color}m"
+    done
+}
+
+show_spectrum () {
+    local i
+    for i in {1..255}; do
+        echo $FG[$i] '$FG['$i']'
+    done
+}
+
+# vim: set ft=zsh:

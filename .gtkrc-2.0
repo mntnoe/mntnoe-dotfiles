@@ -1,0 +1,209 @@
+# File:     .gtkrc-2.0
+# Author:   Mads N Noe <mail (@) madsnoe.dk>
+# License:  as-is
+# Modified: 2011-08-15
+#
+# Note that the keybindings in this file are optimized for the Colemak keyboard
+# layout. Also note that some of the the settings gets overrided by Gnome.
+
+
+# gtk-auto-mnemonics=1
+# gtk-enable-accels=1
+# gtk-enable-mnemonics=1
+# gtk-keynav-cursor-only=0
+# gtk-menu-bar-accel="F10"
+
+# gtk-file-chooser-backend=gio
+# gtk-recent-files-limit=50
+
+gtk-toolbar-icon-size=small-toolbar
+gtk-toolbar-style=both-horiz
+
+gtk-show-unicode-menu=0
+gtk-show-input-method-menu=0
+
+style "murrine-b-treeview"
+{
+        base[ACTIVE]      = "#a2b2bc"
+}
+class "GtkTreeView" style "murrine-b-treeview"
+
+
+# KEYBINDINGS
+
+binding "gtk-binding-text"
+{
+    bind "<alt>BackSpace"  { "delete-from-cursor" (word-ends, -1) }
+}
+class "GtkEntry" binding "gtk-binding-text"
+class "GtkTextView" binding "gtk-binding-text"
+
+binding "gtk-binding-tree-view"
+{
+    # bind "a" { "move-cursor" (display-lines, 0) }
+    bind "b" { "move-cursor" (display-lines, 0) }
+    bind "c" { "move-cursor" (display-lines, 0) }
+    # bind "d" { "move-cursor" (display-lines, 0) }
+    # bind "e" { "move-cursor" (display-lines, 0) }
+    bind "f" { "move-cursor" (display-lines, 0) }
+    bind "g" { "move-cursor" (display-lines, 0) }
+    # bind "h" { "move-cursor" (display-lines, 0) }
+    # bind "i" { "move-cursor" (display-lines, 0) }
+    # bind "j" { "move-cursor" (display-lines, 0) }
+    # bind "k" { "move-cursor" (display-lines, 0) }
+    bind "l" { "move-cursor" (display-lines, 0) }
+    # bind "m" { "move-cursor" (display-lines, 0) }
+    # bind "n" { "move-cursor" (display-lines, 0) }
+    bind "o" { "move-cursor" (display-lines, 0) }
+    bind "p" { "move-cursor" (display-lines, 0) }
+    bind "q" { "move-cursor" (display-lines, 0) }
+    # bind "r" { "move-cursor" (display-lines, 0) }
+    bind "s" { "move-cursor" (display-lines, 0) }
+    bind "t" { "move-cursor" (display-lines, 0) }
+    bind "u" { "move-cursor" (display-lines, 0) }
+    bind "v" { "move-cursor" (display-lines, 0) }
+    bind "x" { "move-cursor" (display-lines, 0) }
+    bind "y" { "move-cursor" (display-lines, 0) }
+    bind "z" { "move-cursor" (display-lines, 0) }
+
+    bind "n"        { "move-cursor" (display-lines, 1) }
+    bind "<shift>n" { "move-cursor" (display-lines, 1) }
+    bind "e"        { "move-cursor" (display-lines, -1) }
+    bind "<shift>e" { "move-cursor" (display-lines, -1) }
+    bind "i"        { "move-cursor" (logical-positions, 1) }
+    bind "<shift>i" { "move-cursor" (logical-positions, 1) }
+    bind "h"        { "move-cursor" (logical-positions, -1) }
+    bind "<shift>h" { "move-cursor" (logical-positions, -1) }
+    bind "j"        { "move-cursor" (pages, 1) }
+    bind "<shift>j" { "move-cursor" (pages, 1) }
+    bind "k"        { "move-cursor" (pages, -1) }
+    bind "<shift>k" { "move-cursor" (pages, -1) }
+    bind "a"        { "move-cursor" (buffer-ends, -1) }
+    bind "<shift>a" { "move-cursor" (buffer-ends, -1) }
+    bind "d"        { "move-cursor" (buffer-ends, 1) }
+    bind "<shift>d" { "move-cursor" (buffer-ends, 1) }
+    bind "p" { "select-cursor-parent" () }
+    bind "l" { "select-cursor-parent" () }
+    bind "u" { "expand-collapse-cursor-row" (0,0,0) }
+    bind "o" { "expand-collapse-cursor-row" (0,1,0) }
+    bind "<shift>o" { "expand-collapse-cursor-row" (0,1,1) }
+    bind "slash" { "start-interactive-search" () }
+
+    bind "r" { "cycle-child-focus" (0) }
+}
+class "GtkTreeView" binding "gtk-binding-tree-view"
+
+binding "gtk-binding-menu"
+{
+    bind "n" { "move-current" (next) }
+    bind "e" { "move-current" (prev) }
+    bind "i" { "move-current" (child) }
+    bind "h" { "move-current" (parent) }
+    bind "j" { "move-current" (next)
+               "move-current" (next) 
+               "move-current" (next) 
+               "move-current" (next) }
+    bind "k" { "move-current" (prev)
+               "move-current" (prev) 
+               "move-current" (prev) 
+               "move-current" (prev) }
+}
+class "GtkMenuShell" binding "gtk-binding-menu"
+
+binding "gtk-binding-widget"
+{
+    bind "m" { "popup-menu" () }
+}
+class "GtkWidget" binding "gtk-binding-widget"
+
+
+binding "gtk-binding-window"
+{
+    bind "<shift>Return" { "activate-default" () }
+}
+class "GtkWindow" binding "gtk-binding-window"
+
+binding "gtk-binding-paned"
+{
+    bind "<mod3>r" { "cycle-child-focus" (0) }
+    bind "<mod3><shift>r" { "cycle-child-focus" (1) }
+}
+class "GtkPaned" binding "gtk-binding-paned"
+
+binding "gtk-binding-notebook"
+{
+    bind "<mod3>h" { "change-current-page" (-1) }
+    bind "<mod3>l" { "change-current-page" (1) }
+}
+class "GtkNotebook" binding "gtk-binding-notebook"
+
+binding "gtk-binding-icon-view"
+{
+    bind "n"        { "move-cursor" (display-lines, 1) }
+    bind "<shift>n" { "move-cursor" (display-lines, 1) }
+    bind "e"        { "move-cursor" (display-lines, -1) }
+    bind "<shift>e" { "move-cursor" (display-lines, -1) }
+    bind "i"        { "move-cursor" (logical-positions, 1) }
+    bind "<shift>i" { "move-cursor" (logical-positions, 1) }
+    bind "h"        { "move-cursor" (logical-positions, -1) }
+    bind "<shift>h" { "move-cursor" (logical-positions, -1) }
+    bind "j"        { "move-cursor" (pages, 1) }
+    bind "<shift>j" { "move-cursor" (pages, 1) }
+    bind "k"        { "move-cursor" (pages, -1) }
+    bind "<shift>k" { "move-cursor" (pages, -1) }
+    bind "a"        { "move-cursor" (buffer-ends, -1) }
+    bind "<shift>a" { "move-cursor" (buffer-ends, -1) }
+    bind "d"        { "move-cursor" (buffer-ends, 1) }
+    bind "<shift>d" { "move-cursor" (buffer-ends, 1) }
+}
+class "GtkIconView" binding "gtk-binding-icon-view"
+
+binding "gtk-binding-scrolled-window"
+{
+    bind "n" { "scroll-child" (step-down, 0) }
+    bind "e" { "scroll-child" (step-up, 0) }
+    bind "h" { "scroll-child" (step-left, 0) }
+    bind "i" { "scroll-child" (step-right, 0) }
+    bind "j" { "scroll-child" (page-down, 0) }
+    bind "k" { "scroll-child" (page-up, 0) }
+    bind "g" { "scroll-child" (start, 0) }
+    bind "<shift>g" { "scroll-child" (end, 0) }
+}
+class "GtkScrolledWindow" binding "gtk-binding-scrolled-window"
+
+
+# APPLICATION SPECIFIC BINDINGS
+
+binding "nautilus-entry"
+{
+    bind "Return"   { 
+                      "activate"   ()
+                      "move-focus" (tab-backward)
+                      "move-focus" (tab-forward) 
+                    }
+}
+class "NautilusLocationEntry" binding "nautilus-entry"
+widget_class "*NautilusSearchBar*GtkEntry" binding "nautilus-entry"
+
+
+# Better focus
+
+binding "nautilus-sidebar" {
+    bind "Tab" { "move-focus" (tab-forward)
+                 "move-focus" (down)
+                 "move-focus" (down) }
+}
+widget_class "*Nautilus*Sidebar*GtkTreeView" binding "nautilus-sidebar"
+
+binding "nautilus-listview" {
+    bind "Tab" { "move-focus" (tab-backward)
+                 "move-focus" (tab-backward)
+                 "move-focus" (tab-backward) }
+}
+widget_class "*Nautilus*ListView*GtkTreeView" binding "nautilus-listview"
+
+binding "nautilus-iconview" {
+    bind "Tab" { "move-focus" (tab-backward) }
+}
+class "NautilusIconContainer" binding "nautilus-iconview"
+
