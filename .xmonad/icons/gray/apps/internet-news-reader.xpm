@@ -1,0 +1,30 @@
+/* XPM */
+static char *internet_news_reader[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 8 1",
+"  c #97CA97CA97CA",
+". c #C050C050C050",
+"X c #D1FFD1FFD1FF",
+"o c #D2A9D2A9D2A9",
+"O c #E0E0E0E0E0E0",
+"+ c #E248E248E248",
+"@ c #FFFFFFFFFFFF",
+"# c None",
+/* pixels */
+"................",
+".@@@@@@@@@@@@@@.",
+".@@@@@@@@@@@@@@.",
+".@@  O  O@@OO@@.",
+".@@      @@OO@@.",
+".@@@@@@@@@@@@@@.",
+".@@OOOO@OOOOO@@.",
+".@@O@@O@@@@@@@@.",
+".@@O@@o@OOOOO@@.",
+".@@O@@O@@@@@@@@.",
+".@@OOOO@OOOOO@@.",
+".@@@@@@@@@@@@@@.",
+".@@oooooooooo@@.",
+".@@@@@@@@@@@@@@.",
+".@@@@@@@@@@@@@@.",
+"#..............#"
+};

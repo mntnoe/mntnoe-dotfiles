@@ -1,0 +1,27 @@
+/* XPM */
+static char *im_icq[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 5 1",
+"  c #D65FD65FD65F",
+". c #E0C4E0C4E0C4",
+"X c #F8FAF8FAF8FA",
+"o c #FFFFFFFFFFFF",
+"O c None",
+/* pixels */
+"OOOOOOOOOOOOOOOO",
+"OOOOO  O   OOOOO",
+"OOOO oo ooo OOOO",
+"OOOO ooXooo OOOO",
+"OO   oooooo   OO",
+"O ooo.oooo.ooo O",
+"O oooo.  .oooo O",
+"O  XXX oo XXX  O",
+"O oooo oo oooo O",
+"O oooo   .oooo O",
+"O ooo.oooo.ooo O",
+"OO   oooooo   OO",
+"OOOO ooXooo OOOO",
+"OOOO oo ooo OOOO",
+"OOOOO  O   OOOOO",
+"OOOOOOOOOOOOOOOO"
+};

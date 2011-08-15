@@ -1,0 +1,38 @@
+/* XPM */
+static char *brasero[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 16 1",
+"  c #B55EB55EB55E",
+". c #BC4DBC4DBC4D",
+"X c #C1CDC1CDC1CD",
+"o c #C5FEC5FEC5FE",
+"O c #CEBECEBECEBE",
+"+ c #D29DD29DD29D",
+"@ c #D508D508D508",
+"# c #DAEADAEADAEA",
+"$ c #E4C5E4C5E4C5",
+"% c #E8E3E8E3E8E3",
+"& c #EC25EC25EC25",
+"* c #F31AF31AF31A",
+"= c #F9BEF9BEF9BE",
+"- c #FCE4FCE4FCE4",
+"; c #FFFFFFFFFFFF",
+": c None",
+/* pixels */
+"::::::::-::-::::",
+":::::-::-::--:::",
+"::::---=====&:::",
+":::=---*X--*#&::",
+"::*$=--@.&---&::",
+"::$#--*#@&---&::",
+":&.&--$==#----#:",
+":@ &--#--$----#:",
+"#X &--@#&@----+:",
+"$  @--#+o+----o:",
+"#..o$--@O-----o:",
+"@oO@@--------&X:",
+"++$&&#-------.o:",
+":O*=--@-----o#::",
+":OO=--+---&.oo::",
+":::XooX..oXO::::"
+};

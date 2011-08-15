@@ -1,0 +1,36 @@
+/* XPM */
+static char *application_default_icon[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 14 1",
+"  c #555557575353",
+". c #818183837E7E",
+"X c #5E5E8E8EBABA",
+"o c #868687878383",
+"O c #878789898484",
+"+ c #88888A8A8585",
+"@ c #9F9FA0A09E9E",
+"# c #A8A8A9A9A7A7",
+"$ c #DFDFDFDFDCDC",
+"% c #DFDFE0E0DDDD",
+"& c #E0E0E1E1DEDE",
+"* c #E3E3E4E4E0E0",
+"= c #E5E5E5E5E3E3",
+"- c #FFFFFFFFFFFF",
+/* pixels */
+"XXXXXXXXXXXXXXXX",
+"                ",
+" @############@ ",
+" #............# ",
+" #OOOOOOOOOOOO# ",
+"+-============-+",
+"+-============-+",
+"+-************-+",
+"+-************-+",
+"+-%%%%%%%%%%%%-+",
+"+-%%%%%%%%%%%%-+",
+"+-&&&&&&&&&&&&-+",
+"+-$$$$$$$$$$$$-+",
+"+--------------+",
+"++++++++++o+++++",
+"XXXXXXXXXXXXXXXX"
+};

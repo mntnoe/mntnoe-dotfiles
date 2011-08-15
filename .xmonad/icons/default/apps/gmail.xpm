@@ -1,0 +1,30 @@
+/* XPM */
+static char *gmail[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 8 1",
+"  c #DA3838",
+". c #E95A5A",
+"X c #F28181",
+"o c #F9A7A7",
+"O c #FFB6B6",
+"+ c #FFE2E2",
+"@ c #FFFFFF",
+"# c None",
+/* pixels */
+"################",
+"################",
+"################",
+"   XooooooooX   ",
+"    O@@@@@@O    ",
+"  X. O@@@@O .X  ",
+"  @X. O@@O .X@  ",
+"  @@X. OO .X@@  ",
+"  @@OX.  .XO@@  ",
+"  @+oOX..XOo+@  ",
+"  +o+@@XX@@+o+  ",
+"  o+@@@@@@@@+o  ",
+"  +@@@@@@@@@@+  ",
+"  oooooooooooo  ",
+"################",
+"################"
+};

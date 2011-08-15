@@ -1,0 +1,31 @@
+/* XPM */
+static char *gnome_panel_window_menu[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 9 1",
+"  c #602160216021",
+". c #837483748374",
+"X c #C050C050C050",
+"o c #D43FD43FD43F",
+"O c #D81FD81FD81F",
+"+ c #DCA9DCA9DCA9",
+"@ c #FC15FC15FC15",
+"# c #FFFFFFFFFFFF",
+"$ c None",
+/* pixels */
+"            $$$$",
+" oooooooooo $$$$",
+" o........o $$$$",
+"X##########X$$$$",
+"X####O+####X    ",
+"X######+###Xooo ",
+"X#####O####X..o ",
+"X##########X###X",
+"X####@+####X###X",
+"X##########X###X",
+"XXXXXXXXXXX@###X",
+"$$$$X##########X",
+"$$$$X##########X",
+"$$$$X##########X",
+"$$$$XXXXXXXXXXXX",
+"$$$$$$$$$$$$$$$$"
+};

@@ -1,0 +1,30 @@
+/* XPM */
+static char *application_default_icon[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 8 1",
+"  c #78CB78CB78CB",
+". c #B67AB67AB67A",
+"X c #BCADBCADBCAD",
+"o c #C050C050C050",
+"O c #E023E023E023",
+"+ c #ECC9ECC9ECC9",
+"@ c #FFFFFFFFFFFF",
+"# c None",
+/* pixels */
+"################",
+"                ",
+" O++++++++++++O ",
+" +............+ ",
+" +oXooXoooXooX+ ",
+"o@@@@@@@@@@@@@@o",
+"o@@@@@@@@@@@@@@o",
+"o@@@@@@@@@@@@@@o",
+"o@@@@@@@@@@@@@@o",
+"o@@@@@@@@@@@@@@o",
+"o@@@@@@@@@@@@@@o",
+"o@@@@@@@@@@@@@@o",
+"o@@@@@@@@@@@@@@X",
+"o@@@@@@@@@@@@@@o",
+"ooooooooooXooooo",
+"################"
+};

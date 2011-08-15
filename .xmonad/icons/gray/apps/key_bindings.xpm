@@ -1,0 +1,30 @@
+/* XPM */
+static char *key_bindings[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 8 1",
+"  c #A0CBA0CBA0CB",
+". c #A713A713A713",
+"X c #ADD0ADD0ADD0",
+"o c #C050C050C050",
+"O c #C954C954C954",
+"+ c #FCA9FCA9FCA9",
+"@ c #FFFFFFFFFFFF",
+"# c None",
+/* pixels */
+"OooooOooooX    .",
+"o@@@@o@@@@ @@@@ ",
+"o@@@@o@@@@ @+@@ ",
+"o@@@@o@@@@ @@@@ ",
+"o@@@@o@@@@ @+@@ ",
+"OOoooooOoOXoX. .",
+"#o@@@@@o@@@@o###",
+"#o@@@@@o@@@@o###",
+"#o@@@@@O@@@@o###",
+"#o@@@@@X@@@@o###",
+".       oooooO##",
+" @@@@@@@o@@@@o##",
+" @@++++@o@@@@o##",
+" @@@@@@@o@@@@o##",
+" ++++++@o@@@@o##",
+".       oooooO##"
+};

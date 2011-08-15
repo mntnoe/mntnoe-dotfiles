@@ -1,0 +1,31 @@
+/* XPM */
+static char *gdmsetup[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 9 1",
+"  c #52EC52EC52EC",
+". c #837483748374",
+"X c #87F387F387F3",
+"o c #8B018B018B01",
+"O c #D43FD43FD43F",
+"+ c #EB40EB40EB40",
+"@ c #FF71FF71FF71",
+"# c #FFFFFFFFFFFF",
+"$ c None",
+/* pixels */
+"$$$$$$$$$$$$$$$$",
+"$XXXXXXXXXXXXXX$",
+"X##############X",
+"X##############X",
+"X##############X",
+"X##############.",
+"X#+OOOOOOOOOO+#X",
+".#O##########O#.",
+"X#O#  #  #  #O#.",
+"X#O#  #  #  #O#.",
+"X#+OOOOOOOOOO+#X",
+"X##############X",
+"X##############.",
+"X##############X",
+"$XooooooooooXXX$",
+"$$$$$$$$$$$$$$$$"
+};

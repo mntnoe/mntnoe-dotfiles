@@ -1,0 +1,28 @@
+/* XPM */
+static char *rtm[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 6 1",
+"  c #000000000000",
+". c #4A4C4A4C4A4C",
+"X c #B3E6B3E6B3E6",
+"o c #FFFFFFFFFFFF",
+"O c #FFFFFFFFFFFF",
+"+ c #FFFFFFFFFFFF",
+/* pixels */
+"OOOOOXXOOO XOOOO",
+"OOOOoXXOOoXXoOOO",
+"OoooXoXOOoooOOOO",
+"XoXX X . XoXoooO",
+"X+X           XX",
+"XXX XX   X X XoX",
+"OooXo+o+oo+oXXXo",
+"OOOoo+ X  +ooOOO",
+"OOOX++ o X+ooOOO",
+"OOOX+++++++ooOOO",
+"OOoX+++++++ooOOO",
+"OOoo+++++++ooOOO",
+"OOoo+ ++ X+ooOOO",
+"OOoo+o++o++ooOOO",
+"OOOXo+++++oXOOOO",
+"OOOOX XXXXXOOOOO"
+};

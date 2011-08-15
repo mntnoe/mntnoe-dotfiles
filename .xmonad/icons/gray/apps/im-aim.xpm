@@ -1,0 +1,28 @@
+/* XPM */
+static char *im_aim[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 6 1",
+"  c #D65FD65FD65F",
+". c #DAB5DAB5DAB5",
+"X c #E14FE14FE14F",
+"o c #F550F550F550",
+"O c #FFFFFFFFFFFF",
+"+ c None",
+/* pixels */
+"++++++++++++++++",
+"+++++++   ++++++",
+"++++++ OOO +++++",
+"++++++ OOO +++++",
+"++++++ OOO +++++",
+"+++++++   ++++++",
+"++++++.XXX   +++",
+"+++++.OOOOOOO ++",
+"+++++ OOOO   +++",
+"+++++ OOOO +++++",
+"+++++ OOOO  ++++",
+"+++  OO   Oo +++",
+"+++ OOo +  Oo ++",
+"++ OO  +++  O ++",
+"++   ++++++  +++",
+"++++++++++++++++"
+};

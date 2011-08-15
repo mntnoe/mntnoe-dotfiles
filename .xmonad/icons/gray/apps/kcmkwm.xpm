@@ -1,0 +1,29 @@
+/* XPM */
+static char *kcmkwm[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 7 1",
+"  c #602160216021",
+". c #837483748374",
+"X c #C050C050C050",
+"o c #D43FD43FD43F",
+"O c #DC6CDC6CDC6C",
+"+ c #FFFFFFFFFFFF",
+"@ c None",
+/* pixels */
+"@           @@@@",
+" ooooooooooo @@@",
+" o.........o @@@",
+"X+++++++++++X  @",
+"X+++++++++++Xoo ",
+"X+++++++++++X.o ",
+"X+++++++++++X++X",
+"X+++++++++++X++X",
+"X+++++++++++X++X",
+"X+++++++++++X++X",
+"X+++++++++++X++X",
+"X+++++++++++X++X",
+"XXXXXXXXXXXXO++X",
+"@@@X+++++++++++X",
+"@@@X+++++++++++X",
+"@@@XXXXXXXXXXXXX"
+};

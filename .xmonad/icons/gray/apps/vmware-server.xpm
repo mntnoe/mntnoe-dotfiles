@@ -1,0 +1,36 @@
+/* XPM */
+static char *vmware_server[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 14 1",
+"  c #602160216021",
+". c #78CB78CB78CB",
+"X c #84F884F884F8",
+"o c #889C889C889C",
+"O c #8C2E8C2E8C2E",
+"+ c #996699669966",
+"@ c #A763A763A763",
+"# c #AC48AC48AC48",
+"$ c #BA8ABA8ABA8A",
+"% c #D1B3D1B3D1B3",
+"& c #DD76DD76DD76",
+"* c #E1C7E1C7E1C7",
+"= c #FFFFFFFFFFFF",
+"- c None",
+/* pixels */
+"-oooooo O......o",
+"o======o.======.",
+"o======o.=....=.",
+"o====oo*.=.**.=.",
+"o=====oo.=.&&.=.",
+"o==o====.=....=.",
+"o==oo===O======.",
+" oo%o==o+O.....X",
+"o.....o+o==o$oo ",
+".======o===oo==o",
+".=....=.====o==o",
+".=.##.=.oo=====o",
+".=.#@.=.#oo====o",
+".=....=.o======o",
+".======.o======o",
+"X......X oooooo-"
+};

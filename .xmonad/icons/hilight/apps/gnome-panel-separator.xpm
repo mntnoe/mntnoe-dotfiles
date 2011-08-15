@@ -1,0 +1,28 @@
+/* XPM */
+static char *gnome_panel_separator[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 6 1",
+"  c #2E3436",
+". c #3E464B",
+"X c #5E8EBA",
+"o c #7FA5C8",
+"O c #9BB9D4",
+"+ c #9EBBD6",
+/* pixels */
+"XXXXXXXoOoXXXXXX",
+"XXXXXXX+.+XXXXXX",
+"XXXXXXX+ +XXXXXX",
+"XXXXXXX+ +XXXXXX",
+"XXXXXXX+ +XXXXXX",
+"XXXXXXX+ +XXXXXX",
+"XXXXXXX+ +XXXXXX",
+"XXXXXXX+ +XXXXXX",
+"XXXXXXX+ +XXXXXX",
+"XXXXXXX+ +XXXXXX",
+"XXXXXXX+ +XXXXXX",
+"XXXXXXX+ +XXXXXX",
+"XXXXXXX+ +XXXXXX",
+"XXXXXXX+ +XXXXXX",
+"XXXXXXXO.+XXXXXX",
+"XXXXXXXoOoXXXXXX"
+};
