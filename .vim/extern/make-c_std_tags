@@ -1,0 +1,10 @@
+#!/bin/sh
+# File:     make-c_std_tags
+# Author:   Mads N Noe <mntnoe (@) gmail.com>
+# Licence:  as-is
+# Modified: 2008-08-12
+
+ctags --options=$HOME/.vim/extern/ctags-cpp /usr/include/{stdio.h,stdlib.h,sys/types.h,sys/stat.h,memory.h,string.h,strings.h,unistd.h}
+echo "Now edit 'tags' and move it to ~/.vim/help/c_std_tags"
+
+# vim: set ft=sh
