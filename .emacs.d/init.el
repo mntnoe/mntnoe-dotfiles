@@ -12,7 +12,7 @@
 (defconst hilight-bg "#b7ab9b")
 (defconst hilight-fg "#ffffff")
 
-(defconst my-emacs-dir           "/home/mntnoe/.emacs.d")
+(defconst my-emacs-dir           "~/.emacs.d")
 (defconst tags-file-name         (concat my-emacs-dir "/TAGS"))
 (defconst abbrev-file-name       (concat my-emacs-dir "/abbrev_defs"))
 (defconst viper-custom-file-name (concat my-emacs-dir "/viper.el"))
@@ -100,7 +100,7 @@
       sentence-end-double-space nil)
 
 ;; SavePlace
-(setq save-place-file "/home/mntnoe/.emacs.d/saveplace")
+(setq save-place-file "~/.emacs.d/saveplace")
 (setq-default save-place t)
 
 
